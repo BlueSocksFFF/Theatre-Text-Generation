@@ -5,7 +5,7 @@ import sys
 
 class monologue_generator:
     def __init__(self):
-        self.args = {"api": "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",
+        self.args = {"api": "revchatkey", ##willa has this just deleting from our repo for now lol
                      "temperature": 0.5,
                      "stream":True}
         self.chatbot = Chatbot(api_key=self.args['api'])

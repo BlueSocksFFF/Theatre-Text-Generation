@@ -2,7 +2,7 @@ import os
 import openai
 import json
 
-openai.api_key = "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"
+openai.api_key = "gpt3key" ##willa has this just deleting from our repo for now lol
 
 class monologue_generator:
 
