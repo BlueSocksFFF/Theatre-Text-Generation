@@ -1,5 +1,8 @@
 # Theatre-Text-Generation
 
+## General Langauges and Packages Required
+Python == 3.10+
+
 ## Types of APIs
 
 ### revChatGPT
