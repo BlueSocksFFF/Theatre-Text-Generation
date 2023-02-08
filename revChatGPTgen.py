@@ -10,9 +10,12 @@ class monologue_generator:
                      "stream":True}
         self.chatbot = Chatbot(api_key=self.args['api'])
 
-    def generate(self, prompt):
+    def generate(self, prompt, audience_suggestion):
         if not self.args['stream']:
             response = self.chatbot.ask(prompt, temperature=self.args['temperature'])
+            fo = open("chatgpt_generated_text.txt","a")
+            fo.write("ChatGPT from " + audience_suggestion + ": " + response)
+            fo.close()
             print("ChatGPT: " + response["choices"][0]["text"])
         else:
             print("ChatGPT: ")
