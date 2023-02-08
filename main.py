@@ -21,10 +21,12 @@ class monologue_generator:
                 sys.stdout.flush()
             print()
 
-
-prompt1 = "Write an armando style monologue based on the word lose weight. Make the story first-person and personal, with themes that are easy to expand on."
-prompt2 = "continue"
+prompts = []
+file1 = open('prompt.txt', 'r')
+lines = file1.readlines()
+for line in lines:
+    prompts.append(line)
+file1.close()
 generator = monologue_generator()
-generator.generate(prompt1)
-# generator.generate(prompt2)
-
+for prompt in prompts:
+    generator.generate(prompt)
