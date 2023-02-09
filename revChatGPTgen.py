@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
+audience_suggestion = sys.argv[2]
 
 
 CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
@@ -18,7 +19,7 @@ class monologue_generator:
                      "stream":True}
         self.chatbot = Chatbot(api_key=self.args['api'])
 
-    def generate(self, prompt, audience_suggestion):
+    def generate(self, prompt):
         if not self.args['stream']:
             response = self.chatbot.ask(prompt, temperature=self.args['temperature'])
             fo = open("chatgpt_generated_text.txt","a")
