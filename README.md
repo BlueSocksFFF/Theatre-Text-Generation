@@ -49,18 +49,6 @@ helpers.py
 - holds helper functions
 - currently working on greater control over the prompt engineering with a "prompt wrapper" function
 
-GPT3gen.py
-- holds GPT3 language model monologue generator class
-
-AI21_gen.py
-- holds AI21 language model monologue generator class
-
-revChatGPTgen.py
-- holds ChatGPT language model monologue generator class
-
-GPT2_gen.py
-- holds GPT2 language model monologue generator class
-
 
 api_client.py
 - communicates with the Avatar API
