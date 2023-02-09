@@ -3,7 +3,7 @@ from revChatGPTgen import monologue_generator as chatgpt
 from GPT3gen import monologue_generator as gpt3
 from AI21_gen import monologue_generator as ai21
 from helpers import set_one_word_prompt, compare_generators
-from api_client import write_to_api
+from api_client import write_to_api, append_to_api, read_from_api
 
 from dotenv import load_dotenv
 import os
@@ -36,13 +36,32 @@ for line in lines:
 file1.close()
 
 ## Sending a generated monologue to the Avatar API-- set to the GPT3 model right now
-if type_of_generator == "avatar_api":
-    text = gpt3().generate(prompts[0])
-    response = write_to_api(text, "avatar_text")
-    if response.status_code == 200:
-        print("Text written to {} successfully.".format("avatar_text"))
-    else:
-        print("Failed to write text to API.")
+## Avatar API file name set to "avatar_text" currently
+match type_of_generator:
+    case "write_api":
+        text = gpt3().generate(prompts[0])
+        response = write_to_api(text, "avatar_text")
+        set_one_word_prompt(audience_suggestion, "PROMPT_PLACEHOLDER")
+        if response.status_code == 200:
+            print("Text written to {} successfully.".format("avatar_text"))
+            exit()
+        else:
+            print("Failed to write text to API.")
+            exit()
+    case "append_api":
+        text = gpt3().generate(prompts[0])
+        response = append_to_api(text, "avatar_text")
+        set_one_word_prompt(audience_suggestion, "PROMPT_PLACEHOLDER")
+        if response.status_code == 200:
+            print("Text appended to {} successfully.".format("avatar_text"))
+            exit()
+        else:
+            print("Failed to append text to API.")
+            exit()
+    case "read_api":
+        response = read_from_api("avatar_text")
+        print(response)
+        exit()
 
 
 ####  Testing the different language models locally
@@ -64,8 +83,6 @@ match type_of_generator:
         set_one_word_prompt(audience_suggestion, "PROMPT_PLACEHOLDER")
     case "compare": 
         compare_generators(prompts[0], gpt3(), ai21())
-        set_one_word_prompt(audience_suggestion, "PROMPT_PLACEHOLDER")
-    case "avatar_api":
         set_one_word_prompt(audience_suggestion, "PROMPT_PLACEHOLDER")
     case other:
         raise Exception("No generator specified")

@@ -38,11 +38,26 @@ Main.py
 
  - Takes in a one word audience suggestion as its 3rd argument. You must give an audience suggestion when calling main.py
 
- - Can also be used to send text to the Avatar API. This will inherently use the GPT3 model.
+ - Can also be used to communicate with the Avatar API. This will inherently use the GPT3 model.
     
-    For example: $ python3 main.py avatar_api zebra
+    write_api:
 
-    This will generate a monologue based on zebra (wrapped in our prompt engineering to format as monologue) and send it to the Avatar team's API
+        For example: $ python3 main.py write_api zebra
+
+        This will generate a monologue based on zebra (wrapped in our prompt engineering to format as monologue) and write it to the Avatar team's API. Write will rewrite the file, not append to it.
+    
+    append_api:
+        For example: $ python3 main.py append_api zebra
+
+        This will generate a monologue based on zebra (wrapped in our prompt engineering to format as monologue) and append it to the Avatar team's API. Append will add to the exisiting file, not rewrite it.
+
+    read_api:
+        For example: $ python3 main.py read_api file_name 
+            currently, file_name has no effect on this read since the file name is hard set to "avatar_text"
+
+        This should output the content written to "avatar_text" file. Not currently working.
+
+
 
 
 helpers.py
