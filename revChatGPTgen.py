@@ -2,10 +2,18 @@ from revChatGPT.Official import *
 import argparse
 import sys
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
+
 
 class monologue_generator:
     def __init__(self):
-        self.args = {"api": "revchatkey", ##willa has this just deleting from our repo for now lol
+        self.args = {"api": CHATGPT_API_KEY, 
                      "temperature": 0.5,
                      "stream":True}
         self.chatbot = Chatbot(api_key=self.args['api'])

@@ -1,7 +1,14 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+GPT2_API_KEY = os.getenv("GPT2_API_KEY")
 
 API_URL = "https://api-inference.huggingface.co/models/gpt2-large"
-headers = {"Authorization": "gpt2"} ##willa has
+headers = {"Authorization": GPT2_API_KEY} ##willa has
 
 def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)

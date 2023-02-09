@@ -1,1 +1,1 @@
-Write an armando style monologue based on the word artist. Make the story first-person and personal, with themes that are easy to expand on.
+Write an armando style monologue based on the word PROMPT_PLACEHOLDER. Make the story first-person and personal, with themes that are easy to expand on.

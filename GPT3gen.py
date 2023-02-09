@@ -1,12 +1,23 @@
 import os
 import openai
 import json
+import sys
 
-openai.api_key = "gpt3key" ##willa has this just deleting from our repo for now lol
+from dotenv import load_dotenv
+
+audience_suggestion = sys.argv[2]
+
+
+load_dotenv()
+
+GPT3_API_KEY = os.getenv("GPT3_API_KEY")
+
+
+openai.api_key = GPT3_API_KEY 
 
 class monologue_generator:
 
-  def generate(self, Newprompt, audience_suggestion):
+  def generate(self, Newprompt):
     response = openai.Completion.create(
       model="text-davinci-003",
       prompt=Newprompt,
@@ -17,6 +28,6 @@ class monologue_generator:
       presence_penalty=0.0
     )
     fo = open("gpt3_generated_text.txt","a")
-    fo.write("GPT3 from " + audience_suggestion + ": " + response["choices"][0]["text"])
+    fo.write("\nGPT3 from " + audience_suggestion + ": " + response["choices"][0]["text"])
     fo.close()
     print("GPT3: " + response["choices"][0]["text"])
