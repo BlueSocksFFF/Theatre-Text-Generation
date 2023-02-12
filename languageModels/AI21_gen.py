@@ -68,7 +68,7 @@ class monologue_generator:
         text = json_data['completions'][0]['data']['text']
         
     
-        fo = open("ai21_generated_text.txt","a")
+        fo = open("generatedTexts/ai21_generated_text.txt","a")
         fo.write("\nAI21 from " + audience_suggestion + ": " + text)
         fo.close()
         print("AI21: " + text)
