@@ -1,4 +1,0 @@
-Write an armando style monologue based on the word PROMPT_PLACEHOLDER. Make the story first-person and personal, with themes that are easy to expand on.
-Write a monologue based on the word PROMPT_PLACEHOLDER. It should be on the spot, a personal story that flits from topic to topic.
-Anecdotal monologue about PROMPT_PLACEHOLDER. It should be like a story from The Moth.
-Monologue about PROMPT_PLACEHOLDER. Let the topics wander and talk about whatever comes to mind.
