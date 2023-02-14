@@ -27,7 +27,10 @@ class monologue_generator:
       frequency_penalty=0.5,
       presence_penalty=0.0
     )
-    fo = open("gpt3_generated_text.txt","a")
+    fo = open("generatedTexts/gpt3_generated_text.txt","a")
     fo.write("\nGPT3 from " + audience_suggestion + ": " + response["choices"][0]["text"])
     fo.close()
     print("GPT3: " + response["choices"][0]["text"])
+    return response
+
+    

@@ -1,9 +1,9 @@
 import sys
-from revChatGPTgen import monologue_generator as chatgpt
-from GPT3gen import monologue_generator as gpt3
-from AI21_gen import monologue_generator as ai21
-from helpers import set_one_word_prompt, compare_generators
-from api_client import write_to_api, append_to_api, read_from_api
+from languageModels.revChatGPTgen import monologue_generator as chatgpt
+from languageModels.GPT3gen import monologue_generator as gpt3
+from languageModels.AI21_gen import monologue_generator as ai21
+from helpers import set_one_word_prompt, compare_generators, manage_prompt_wrappers
+from api_client import write_to_api, append_to_api, read_from_api, format_for_api
 
 from dotenv import load_dotenv
 import os
@@ -28,24 +28,28 @@ print("NEW PROMPT:", audience_suggestion)
 set_one_word_prompt("PROMPT_PLACEHOLDER", audience_suggestion)
 
 ## Wrapping the audience suggestion in prompt engineering (found in prompts.txt)
-prompts = [] ## can we have a better system of switching between prompt wrappers, working on it in helpers.py
-file1 = open('prompts.txt', 'r')
-lines = file1.readlines()
-for line in lines:
-    prompts.append(line)
-file1.close()
+
+prompts = [] 
+manage_prompt_wrappers(prompts, 3) ##different prompt_wrapper options located in prompts.py
+
+print("PROMPTS", prompts)
 
 ## Sending a generated monologue to the Avatar API-- set to the GPT3 model right now
 ## Avatar API file name set to "avatar_text" currently
 match type_of_generator:
     case "write_api":
-        text = gpt3().generate(prompts[0])
-        response = write_to_api(text, "avatar_text")
+        text = gpt3().generate(prompts[0])["choices"][0]["text"]
+        background = "https://tinyurl.com/ysf4n5u8"
+        gesture = "left"
+        ##print("TEXT HERE", text)
+        content = format_for_api(text, background, gesture)
+        response = write_to_api(content, "avatar_text")
         set_one_word_prompt(audience_suggestion, "PROMPT_PLACEHOLDER")
-        if response.status_code == 200:
+        if response.status_code == 201:
             print("Text written to {} successfully.".format("avatar_text"))
             exit()
         else:
+            print(response)
             print("Failed to write text to API.")
             exit()
     case "append_api":
