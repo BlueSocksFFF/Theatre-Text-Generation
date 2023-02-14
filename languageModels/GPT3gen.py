@@ -5,9 +5,6 @@ import sys
 
 from dotenv import load_dotenv
 
-audience_suggestion = sys.argv[2]
-
-
 load_dotenv()
 
 GPT3_API_KEY = os.getenv("GPT3_API_KEY")
@@ -26,11 +23,10 @@ class monologue_generator:
       top_p=1.0,
       frequency_penalty=0.5,
       presence_penalty=0.0
-    )
+    )["choices"][0]["text"]
     fo = open("generatedTexts/gpt3_generated_text.txt","a")
-    fo.write("\nGPT3 from " + audience_suggestion + ": " + response["choices"][0]["text"])
+    fo.write("\nGPT3 from " + Newprompt + ": " + response)
     fo.close()
-    print("GPT3: " + response["choices"][0]["text"])
     return response
 
     
