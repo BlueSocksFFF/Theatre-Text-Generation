@@ -1,11 +1,4 @@
-{
-    "prompts": [{
-        "file" : "avatar_text.json",
-        "content": "Write a monologue based on the word PROMPT_PLACEHOLDER. It should be on the spot, a personal story that flits from topic to topic."
-        },
-        {"file" : "avatar_text_alternate.json",
-        "content": "Write a monologue based on the word PROMPT_PLACEHOLDER. It should be on the spot, a personal story that flits from topic to topic."
-        }
-    ]
-   
+{       
+"file" : "avatar_text.json",
+"content": "Write a monologue based on the word PROMPT_PLACEHOLDER. It should be on the spot, a personal story that flits from topic to topic."
 }
