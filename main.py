@@ -9,23 +9,30 @@ import os
 load_dotenv()
 
 GPT3_API_KEY = os.getenv("GPT3_API_KEY")
-type_of_generator = gpt3 
-
 
 ### for setting the prompt for testing by writing to the prompt file ###
-write_to_api("huh well, the best day I have had was swimming in the Atlantic with my grandma", "avatar_prompts")
-###
+# write_to_api("huh well, the best day I have had was swimming in the Atlantic with my grandma", "avatar_prompts")
+# ###
 
-prompt_file = "avatar_prompts" 
-prompt = pull_down_prompt(prompt_file) # grabbing prompt
+# prompt_file = "avatar_prompts" 
+# prompt = pull_down_prompt(prompt_file) # grabbing prompt
 
-print(prompt)
+# print(prompt)
 
-print("TYPE:", type_of_generator)
+raw_audience_speech = "huh well, the best day I have had was swimming in the Atlantic with my grandma"
+
+key_phrases = key_phrases_from_text(raw_audience_speech)
+
+parsed_key_phrases = " and ".join(key_phrases)
+
+prompt = f"Write a monologue based on {parsed_key_phrases}. It should be on the spot, a personal story that flits from topic to topic."
+
 print("NEW PROMPT:", prompt)
 
+# instantiate
+new_prompt = gpt3(prompt)
 
-monologue = gpt3().generate(prompt) ## Generating a monologue
+monologue = new_prompt.generate() ## Generating a monologue
 
 print("Generated Monologue:", monologue)
 

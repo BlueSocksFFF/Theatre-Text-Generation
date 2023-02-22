@@ -1,12 +1,16 @@
 import json
 import boto3
+import os
 
 ## This file is building out ability to take in text and seperate it into keywords using AWS
 
-
+session = boto3.Session(
+    aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+)
 
 def key_phrases_from_text(text): ##using AWS service to pull key words
-    comprehend = boto3.client(service_name='comprehend', region_name='us-west-2')
+    comprehend = session.client(service_name='comprehend', region_name='us-west-2')
 
     print(text)
 
@@ -21,12 +25,6 @@ def key_phrases_from_text(text): ##using AWS service to pull key words
 
     return phrases
 
-
-test_phrase = "huh well, the best day I have had was swimming in the Atlantic with my grandma"
-
-phrases = key_phrases_from_text(test_phrase)
-
-print(phrases)
 
 
 
