@@ -44,8 +44,22 @@ gpt3_generated_text
 
 
 #### Installation
+We recommend that you download the packages in a virtual environment.
+In Windows:
 ```
-pip3 install openai
+py -m venv env
+```
+To activate: 
+```
+env\Scripts\activate
+```
+After you have your virtual environment set up, run the command below to install all of the packages relevant to this project.
 
 ```
+pip install -r requirements.txt
 
+```
+If the above command does not work, refer to requirements.txt and download the individual packages.
+
+#### Environment Variables
+To run our generator, you would need to obtain your own API keys. Please refer to the .env.example file, which is a template for your .env file, and create your own .env file and put down your API keys there. Make sure to keep them to yourself, hence we did not include any API keys in this repo.

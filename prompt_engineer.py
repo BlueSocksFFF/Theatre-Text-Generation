@@ -14,8 +14,8 @@ def pull_down_suggestion(): ##pulling the single word suggestion from the API
         suggestion = read_from_api("suggestions")
         return suggestion
 
-def key_phrases_to_prompt(keywords): ## taking in keywords (as a list) and making a prompt
-    for x in keywords:
+# def key_phrases_to_prompt(keywords): ## taking in keywords (as a list) and making a prompt
+#     for x in keywords:
 
 
    
@@ -30,5 +30,3 @@ def key_phrases_to_prompt(keywords): ## taking in keywords (as a list) and makin
     #     prompt = data["content"]
 
     #     f.close()
-
-
