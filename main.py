@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from languageModels.GPT3gen import monologue_generator as gpt3
 from api_client import write_to_api, append_to_api, read_from_api
 from prompt_engineer import pull_down_prompt
@@ -19,7 +21,8 @@ GPT3_API_KEY = os.getenv("GPT3_API_KEY")
 
 # print(prompt)
 
-raw_audience_speech = "huh well, the best day I have had was swimming in the Atlantic with my grandma"
+raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
+print('raw audience suggestion', raw_audience_speech)
 
 key_phrases = key_phrases_from_text(raw_audience_speech)
 
