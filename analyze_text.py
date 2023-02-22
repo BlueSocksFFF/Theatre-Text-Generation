@@ -1,6 +1,5 @@
 import json
 import boto3
-import nltk
 
 ## This file is building out ability to take in text and seperate it into keywords using AWS
 
