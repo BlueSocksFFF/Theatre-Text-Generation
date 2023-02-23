@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from languageModels.GPT3gen import monologue_generator as gpt3
 from api_client import write_to_api, append_to_api, read_from_api
-from prompt_engineer import pull_down_prompt
+from prompt_engineer import engineer
 from analyze_text import key_phrases_from_text
 
 from dotenv import load_dotenv
@@ -12,25 +11,21 @@ load_dotenv()
 
 GPT3_API_KEY = os.getenv("GPT3_API_KEY")
 
-### for setting the prompt for testing by writing to the prompt file ###
-# write_to_api("huh well, the best day I have had was swimming in the Atlantic with my grandma", "avatar_prompts")
-# ###
+## we need a situation for when the suggestion is just a single word, 
+# and a seperate situation for chunks of text grabbed from improv scenes
 
-# prompt_file = "avatar_prompts" 
-# prompt = pull_down_prompt(prompt_file) # grabbing prompt
+        # scene_text = pull_down_scene_text()
+        # suggestion = pull_down_suggestion()
 
-# print(prompt)
+# ^^ normally would be pulling the text/suggestion from the API, hardcoding it for now
+# will the scene text be in a LIST form?
 
-raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
-print('raw audience suggestion', raw_audience_speech)
+scene_text = "well you don't know anything. You never have, you are a fool. Go ahead cousin, try and betray me."
+suggestion = "mall"
 
-key_phrases = key_phrases_from_text(raw_audience_speech)
 
-parsed_key_phrases = " and ".join(key_phrases)
-
-prompt = f"Write a monologue based on {parsed_key_phrases}. It should be on the spot, a personal story that flits from topic to topic."
-
-print("NEW PROMPT:", prompt)
+prompt = engineer(scene_text)
+print("engineered prompt:", prompt)
 
 # instantiate
 new_prompt = gpt3(prompt)

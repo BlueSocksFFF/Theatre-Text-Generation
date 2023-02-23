@@ -1,32 +1,22 @@
-from api_client import read_from_api
 import json
+from analyze_text import key_phrases_from_text
 
 
+# ------------
 
-def pull_down_prompt(file_name): ##pulling a fully engineered prompt
-        prompt = read_from_api("avatar_text")["content"]
+def engineer(text):
+
+        if len(text) > 1: #this means TEXT is a longer sentence, not a single suggestion
+                print("scene text")
+                key_phrases = key_phrases_from_text(text) 
+                 ## grabbing the key phrases from scene text in analyze_text.py
+                print("key phrases", key_phrases)
+                
+                ## making the key phrases work syntactically to be put into prompt
+                parsed_key_phrases = " and ".join(key_phrases)
+                prompt = f"Develop a monologue that examines the role of {parsed_key_phrases} in society and its impact on individuals."
+        else:
+                print("single suggestion")
+                prompt = f"Develop a monologue that examines the role of {text} in society and its impact on individuals."
         return prompt
 
-
-
-
-def pull_down_suggestion(): ##pulling the single word suggestion from the API
-        suggestion = read_from_api("suggestions")
-        return suggestion
-
-# def key_phrases_to_prompt(keywords): ## taking in keywords (as a list) and making a prompt
-#     for x in keywords:
-
-
-   
-
-# Not converting suggestion to prompt, assuming already engineered prompt
-
-    # def suggestion_to_prompt(): ##place suggestion into larger prompt
-    #     suggestion, word = pull_down_suggestion()
-    
-    #     f = open('prompts.json')
-    #     data = json.load(f)
-    #     prompt = data["content"]
-
-    #     f.close()

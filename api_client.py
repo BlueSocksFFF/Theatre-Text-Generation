@@ -51,6 +51,17 @@ def read_latest_from_api(file_name):
     response = requests.post(url, headers=header, json=data)
     return response.json()
 
+## Gathering prompt/suggestion -- need to clarify how this is organized on the speechToText side
+
+def pull_down_scene_text(file_name): ##pulling a fully engineered prompt
+        text = read_from_api("scene_text")["content"]
+        return text
+
+def pull_down_suggestion(): ##pulling the single word suggestion from the API
+        suggestion = read_from_api("suggestions") # "suggestion" file just a placeholder
+        return suggestion
+
+
 
     
 #   was attempting to put the json response in a specific format 
