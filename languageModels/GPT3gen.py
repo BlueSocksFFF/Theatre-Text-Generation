@@ -6,18 +6,17 @@ load_dotenv()
 
 GPT3_API_KEY = os.getenv("GPT3_API_KEY")
 
-
 openai.api_key = GPT3_API_KEY 
 
 class monologue_generator:
 
-  def __init__(self, prompt) -> None:
-    self.prompt = prompt
+  def __init__(self) -> None:
+     pass
 
-  def generate(self):
+  def generate_monologue(self, prompt):
     response = openai.Completion.create(
       model="text-davinci-003",
-      prompt=self.prompt,
+      prompt=prompt,
       temperature=0.8,
       max_tokens=300,
       # top_p=1.0,
@@ -28,7 +27,7 @@ class monologue_generator:
     # fo.write("\nGPT3 from " + self.prompt + ": " + response)
     # fo.close()
     with open("generatedTexts/gpt3_generated_text.txt", "a", encoding="utf-8") as fo:
-        fo.write("\nGPT3 from " + self.prompt + ": " + response.encode('utf-8').decode('utf-8'))
+        fo.write("\nGPT3 from " + prompt + ": " + response.encode('utf-8').decode('utf-8'))
     return response
 
     

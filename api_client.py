@@ -1,5 +1,10 @@
 import requests
+## PYTHON
 
+# url = "http://api.the-singularity-show.com/api/write/"
+# body = {"file": "hello_world", "content": "Hello, world!"}
+# response = requests.post(url, json=body)
+# print(response.json())
 
 ## this file is for interacting with the Avatar API
 
@@ -27,6 +32,11 @@ def append_to_api(content, file_name):
     response = requests.post(url, headers=header, json=data)
     return response
 
+
+# url = "http://api.the-singularity-show.com/api/read/"
+# body = {"file": "hello_world"}
+# response = requests.post(url, json=body)
+# print(response.json())
 
 def read_from_api(file_name):
     url = "http://api.the-singularity-show.com/api/read/"
