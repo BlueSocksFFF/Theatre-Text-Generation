@@ -3,14 +3,8 @@
 from languageModels.GPT3gen import monologue_generator as gpt3
 from api_client import write_to_api, append_to_api, read_from_api
 from prompt_engineer import pull_down_prompt
-from analyze_text import key_phrases_from_text
-
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-GPT3_API_KEY = os.getenv("GPT3_API_KEY")
+from detect_key_phrases import key_phrase_extractor
+from sentiment_analysis import sentiment_analyzer
 
 ### for setting the prompt for testing by writing to the prompt file ###
 # write_to_api("huh well, the best day I have had was swimming in the Atlantic with my grandma", "avatar_prompts")
@@ -20,27 +14,36 @@ GPT3_API_KEY = os.getenv("GPT3_API_KEY")
 # prompt = pull_down_prompt(prompt_file) # grabbing prompt
 
 # print(prompt)
+#topic key phrases sentiment
 
+# hardcoded audience suggestion, will pull from API later
 raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
 print('raw audience suggestion', raw_audience_speech)
 
-key_phrases = key_phrases_from_text(raw_audience_speech)
+# testing sentiment analyzer, not integrated in the app yet
+# instantiate sentiment_analyzer
+sentiment_analysis_module = sentiment_analyzer()
+sentiment, sentiment_score = sentiment_analysis_module.get_sentiment(raw_audience_speech)
+print(f"sentiment: {sentiment}")
+print(sentiment_score)
 
+# instantiate the key_phrase_extractor
+key_phrase_extraction_module = key_phrase_extractor()
+key_phrases = key_phrase_extraction_module.get_key_phrases(raw_audience_speech)
+# join the key words with "and"
 parsed_key_phrases = " and ".join(key_phrases)
-
+# prompt with keywords
 prompt = f"Write a monologue based on {parsed_key_phrases}. It should be on the spot, a personal story that flits from topic to topic."
-
 print("NEW PROMPT:", prompt)
 
-# instantiate
-new_prompt = gpt3(prompt)
-
-monologue = new_prompt.generate() ## Generating a monologue
-
+# instantiate gpt3 model
+gpt = gpt3()
+# generate monologue
+monologue = gpt.generate_monologue(prompt=prompt)
 print("Generated Monologue:", monologue)
 
-write_to_api(monologue, "avatar_text") ## sending that monologue to the API
-
+# sending that monologue to the API
+write_to_api(monologue, "avatar_text")
 # ## we may need to adjust write_to_api to be in the longer format with "gesture" and "background"
 
 
