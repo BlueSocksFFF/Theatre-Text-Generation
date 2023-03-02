@@ -21,15 +21,22 @@ class entity_extractor:
 
         response = json.loads(json.dumps(comprehend.detect_entities(Text=text, LanguageCode='en'), sort_keys=True, indent=4))['Entities']
         
-        entities = []
-
+        ##this setup creates a list in each type so that multiple entities will be grouped together if they share
+        # the same type. We may not want that down the road.
+        entities = {}
         for entity in response:
-            entities.append(entity['Text'])
-            entities.append(entity['Type'])
-
+            entity_type = entity['Type']
+            entity_text = entity['Text']
+            if entity_type not in entities:
+                entities[entity_type] = []
+            entities[entity_type].append(entity_text)
         return entities
-    
-raw_audience_speech = "I have never lived in New York City, but my mother Dorothy did in the 90s"
+
+
+
+## testing  
+  
+raw_audience_speech = "I have never lived in New York City, but my mother Dorothy did in the 90s and my father did in the 80s"
 
 entity_extraction_module = entity_extractor()
 entities = entity_extraction_module.get_entities(raw_audience_speech)

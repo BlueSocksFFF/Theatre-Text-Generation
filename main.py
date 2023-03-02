@@ -2,7 +2,6 @@
 
 from languageModels.GPT3gen import monologue_generator as gpt3
 from api_client import write_to_api, append_to_api, read_from_api
-from prompt_engineer import pull_down_prompt
 from detect_key_phrases import key_phrase_extractor
 from sentiment_analysis import sentiment_analyzer
 

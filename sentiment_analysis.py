@@ -28,8 +28,10 @@ class sentiment_analyzer:
         return sentiment, sentiment_score
 
 
-raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
 
+## testing  
+
+raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
 
 sentiment_analysis_module = sentiment_analyzer()
 

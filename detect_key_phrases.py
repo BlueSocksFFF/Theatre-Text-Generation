@@ -31,6 +31,9 @@ class key_phrase_extractor:
 
         return phrases
 
+
+## testing  
+
 raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
 
 key_phrase_extraction_module = key_phrase_extractor()
