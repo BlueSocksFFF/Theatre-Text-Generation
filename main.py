@@ -6,15 +6,6 @@ from prompt_engineer import pull_down_prompt
 from detect_key_phrases import key_phrase_extractor
 from sentiment_analysis import sentiment_analyzer
 
-### for setting the prompt for testing by writing to the prompt file ###
-# write_to_api("huh well, the best day I have had was swimming in the Atlantic with my grandma", "avatar_prompts")
-# ###
-
-# prompt_file = "avatar_prompts" 
-# prompt = pull_down_prompt(prompt_file) # grabbing prompt
-
-# print(prompt)
-#topic key phrases sentiment
 
 # hardcoded audience suggestion, will pull from API later
 raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"

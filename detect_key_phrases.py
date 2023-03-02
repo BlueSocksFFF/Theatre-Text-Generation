@@ -1,6 +1,11 @@
 import json
 import boto3
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
+
+
 
 ## This file is building out ability to take in text and seperate it into keywords using AWS
 
@@ -25,6 +30,13 @@ class key_phrase_extractor:
             phrases.append(keyPhrase['Text'])
 
         return phrases
+
+raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
+
+key_phrase_extraction_module = key_phrase_extractor()
+key_phrases = key_phrase_extraction_module.get_key_phrases(raw_audience_speech)
+
+print(key_phrases)
 
 
 
