@@ -42,3 +42,7 @@ can we get to closure?
 
 ----
 form update: doing a dream, having a monologue based on current events 
+
+
+
+
