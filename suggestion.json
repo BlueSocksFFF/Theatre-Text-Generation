@@ -1,4 +1,5 @@
 {
-	"file": "00.json",
-	"content": ["word1"]
+    "LOCATION": "BLANK",
+    "OCCUPATION": "BLANK",
+    "PROBLEM": "BLANK"
 }
