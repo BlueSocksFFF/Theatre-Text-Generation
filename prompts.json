@@ -1,4 +1,30 @@
-{       
-"file" : "avatar_text.json",
-"content": "Write a monologue based on the word PROMPT_PLACEHOLDER. It should be on the spot, a personal story that flits from topic to topic."
-}
+{
+    "mixed": [
+      "Tell me about a time when you felt both {blank1} and {blank2} at the same time.",
+      "What are some of the advantages and disadvantages of being {blank}?",
+      "Describe a situation where you had conflicting emotions about {blank}.",
+      "Can you think of a time when you were torn between {blank1} and {blank2}?",
+      "What are some of the ways that {blank} can be both good and bad?"
+    ],
+    "neutral": [
+      "Can you tell me more about {blank}?",
+      "What is your opinion on {blank}?",
+      "How does {blank} affect your life?",
+      "Have you ever experienced {blank}? How did you feel?",
+      "What is the importance of {blank} in today's society?"
+    ],
+    "positive": [
+      "What are some of the things you love about {blank}?",
+      "Describe a time when you felt incredibly {blank}.",
+      "How has {blank} had a positive impact on your life?",
+      "What is something that always makes you feel {blank}?",
+      "How do you stay {blank} when faced with challenges?"
+    ],
+    "negative": [
+      "What are some of the challenges of dealing with {blank}?",
+      "Describe a time when you felt very {blank}.",
+      "How has {blank} had a negative impact on your life?",
+      "What is something that always makes you feel {blank}?",
+      "How do you cope with feelings of {blank}?"
+    ]
+  }
