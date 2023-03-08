@@ -1,6 +1,9 @@
 import json
 import boto3
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 ## This file is building out ability to take in text and analyze the sentiment of it
 
@@ -37,5 +40,14 @@ class sentiment_analyzer:
 
 
 
+## testing  
+
+raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
+
+sentiment_analysis_module = sentiment_analyzer()
+
+sentiment, sentiment_score = sentiment_analysis_module.get_sentiment(raw_audience_speech)
+print(f"sentiment: {sentiment}")
+print(sentiment_score)
 
 

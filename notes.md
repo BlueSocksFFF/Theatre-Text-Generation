@@ -16,3 +16,33 @@ series of microservices
 
 give the prompts more emotional arc
 
+-----------
+
+instead of a module that has a main, things become individual 
+
+call the individual functions separately-- dont want to call main
+
+clear description of credentials 
+
+dive into comprehend and make sure we know what it can give us
+
+NEXT TASK is prompt engineer for SUGGESTIONS
+
+separate piece of code: given a set of terms that is sorted for you (eg location:beach, occupation:doctor, problem:divorce)
+- give me a monologue using this information 
+
+How do we get variety from the rest of it
+
+
+WHAT ABOUT generating a monologue from SCENES
+
+can we get to closure?
+
+
+
+----
+form update: doing a dream, having a monologue based on current events 
+
+
+
+

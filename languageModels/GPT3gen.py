@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 GPT3_API_KEY = os.getenv("GPT3_API_KEY")
 
 openai.api_key = GPT3_API_KEY 
