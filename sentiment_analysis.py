@@ -12,7 +12,7 @@ class sentiment_analyzer:
         )
 
     # text = audience suggestion
-    def get_sentiment(self, text): ##using AWS service to pull key words
+    def get_sentiment(self, text):
         comprehend = self.session.client(service_name='comprehend', region_name='us-west-2')
 
         print('Getting sentiment from text...')
@@ -23,6 +23,17 @@ class sentiment_analyzer:
         sentiment_score = response['SentimentScore']
 
         return sentiment, sentiment_score
+    
+    def get_targeted_sentiment(self, text):
+        comprehend = self.session.client(service_name='comprehend', region_name='us-west-2')
+
+        print('Getting targeted sentiment from text...')
+
+        response = json.loads(json.dumps(comprehend.detect_targeted_sentiment(Text=text, LanguageCode='en'), sort_keys=True, indent=4))
+        
+        sentiment = response
+
+        return sentiment
 
 
 
