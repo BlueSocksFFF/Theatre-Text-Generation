@@ -38,5 +38,3 @@ sentiment_analysis_module = sentiment_analyzer()
 sentiment, sentiment_score = sentiment_analysis_module.get_sentiment(raw_audience_speech)
 print(f"sentiment: {sentiment}")
 print(sentiment_score)
-
-
