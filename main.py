@@ -29,7 +29,7 @@ if __name__ == "__main__":
     prompt = f"Write a monologue based on {parsed_key_phrases}. It should be on the spot, a personal story that flits from topic to topic."
     print("NEW PROMPT:", prompt)
 
-    # instantiate gpt3.5turbo model
+    # instantiate the parallel generator
     generator = monologue_generator()
     # generate monologue
     monologue = generator.generate_monologue(prompt=prompt)
