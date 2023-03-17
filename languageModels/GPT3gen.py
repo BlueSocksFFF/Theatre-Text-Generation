@@ -19,7 +19,7 @@ class gpt3_monologue_generator:
       model="text-davinci-003",
       prompt=prompt,
       temperature=0.8,
-      max_tokens=300,
+      max_tokens=500,
       # top_p=1.0,
       frequency_penalty=0.5,
       presence_penalty=0.0
@@ -27,8 +27,6 @@ class gpt3_monologue_generator:
     # fo = open("generatedTexts/gpt3_generated_text.txt","a")
     # fo.write("\nGPT3 from " + self.prompt + ": " + response)
     # fo.close()
-    with open("generatedTexts/gpt3_generated_text.txt", "a", encoding="utf-8") as fo:
-        fo.write("\nGPT3 from " + prompt + ": " + response.encode('utf-8').decode('utf-8'))
     return response
 
     

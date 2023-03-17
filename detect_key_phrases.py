@@ -32,14 +32,14 @@ class key_phrase_extractor:
         return phrases
 
 
-## testing  
+# ## testing  
 
-raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
+# raw_audience_speech = "huh well, the best day I have had was hiking the Himalayas with my friends"
 
-key_phrase_extraction_module = key_phrase_extractor()
-key_phrases = key_phrase_extraction_module.get_key_phrases(raw_audience_speech)
+# key_phrase_extraction_module = key_phrase_extractor()
+# key_phrases = key_phrase_extraction_module.get_key_phrases(raw_audience_speech)
 
-print(key_phrases)
+# print(key_phrases)
 
 
 

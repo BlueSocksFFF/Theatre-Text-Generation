@@ -1,47 +1,51 @@
-pull audience sugg from dig ocean, process that
+Current Work:
 
-1. Actual prompt, assumes a prompt exists, grabs prompt invoke language model and sends it back up to another file
+FIRST MONOLOGUE 
+    should take in a suggestion, or multiple suggestions, and return a monologue that
+    is rich enough for improvisers to work off of. 
 
-2. when it takes suggestions, builds a prompt
-    or when it takes what it's been listening to from the scenes
-
-3. different manipulation of the prompt for each of those
-
-
-4. initial prompt generator, pulls terms sends prompt back up
-
-
-series of microservices 
-
-
-give the prompts more emotional arc
-
------------
-
-instead of a module that has a main, things become individual 
-
-call the individual functions separately-- dont want to call main
-
-clear description of credentials 
-
-dive into comprehend and make sure we know what it can give us
-
-NEXT TASK is prompt engineer for SUGGESTIONS
-
-separate piece of code: given a set of terms that is sorted for you (eg location:beach, occupation:doctor, problem:divorce)
-- give me a monologue using this information 
-
-How do we get variety from the rest of it
-
-
-WHAT ABOUT generating a monologue from SCENES
-
-can we get to closure?
+        We will generate 2 simultaneously as a precaution for API disconnect/failure
+            - GPT3 monologue generator
+            - GPT3.5 monologue generator
 
 
 
-----
-form update: doing a dream, having a monologue based on current events 
+Prompt should direct this monologue to be off the cuff, without precise language, essentially imitating an improviser who is coming up with a monologue on the spot. We want a solid emotional arc to the text, drawing from emotion words we have already gathered. 
+
+
+SECOND MONOLOGUE 
+    should take in the themes/key phrases from the FIRST monologue, as well as themes/key phrases from the following improv scenes. It should incorporate that information into the text and try to bring a sense of closure to the piece. 
+
+
+________________
+
+System itself will be asking questions to a dreamer 
+How do we stop it going along one path that we dont want it to go down
+Need the AI to go back to our base questions
+Want the AI to be driving the conversation 
+Answers then become a set of prompts
+- Person is an accountant
+- Person had this for breakfast
+- Has kids
+- Is married
+
+Some dreams are nightmares, some dreams are pleasant
+
+Need control of the questions
+
+Managing questions you have asked
+
+
+Write down 5 questions you would ask 
+Explain to system how you want these questions asked, how the conversation is going to go 
+
+
+
+
+
+
+
+
 
 
 
