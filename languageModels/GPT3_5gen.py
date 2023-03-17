@@ -22,11 +22,8 @@ class gpt3_5_monologue_generator:
       frequency_penalty=0.5,
       presence_penalty=0.0
     )["choices"][0]["message"]["content"]
-    # fo = open("generatedTexts/gpt3_generated_text.txt","a")
-    # fo.write("\nGPT3 from " + self.prompt + ": " + response)
-    # fo.close()
-    # with open("generatedTexts/gpt3_generated_text.txt", "a", encoding="utf-8") as fo:
-    #     fo.write("\nGPT3 from " + prompt + ": " + response.encode('utf-8').decode('utf-8'))
+    with open("generatedTexts/gpt3_generated_text.txt", "a", encoding="utf-8") as fo:
+        fo.write("\nGPT3 from " + prompt + ": " + response.encode('utf-8').decode('utf-8'))
     return response
 
     

@@ -31,14 +31,3 @@ class entity_extractor:
                 entities[entity_type] = []
             entities[entity_type].append(entity_text)
         return entities
-
-
-
-## testing  
-  
-# raw_audience_speech = "I have never lived in New York City, but my mother Dorothy did in the 90s and my father did in the 80s"
-
-# entity_extraction_module = entity_extractor()
-# entities = entity_extraction_module.get_entities(raw_audience_speech)
-
-# print(entities)
