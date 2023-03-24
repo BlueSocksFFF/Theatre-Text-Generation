@@ -1,6 +1,8 @@
 import random
 import json
 
+# sets emotional arc for a monologue by providing two random emotions
+
 class emotion_setter:
     def __init__(self):
         with open('emotions.json', 'r') as f:

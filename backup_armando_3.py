@@ -1,9 +1,15 @@
 from languageModels.GPT3gen import gpt3_monologue_generator as gpt3
+import languageModels.introduction_gen
 import json
 import random
 from emotions import emotion_setter
 
-#these suggestion specifications should be given to us from the host/audience
+
+##setting up the show with an introduction of the improvisers
+
+languageModels.introduction_gen.basic_intro()
+
+# these suggestion specifications should be given to us from the host/audience
 suggestion = "oil spills"
 
 # setting new emotions for the monologue

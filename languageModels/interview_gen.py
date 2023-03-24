@@ -29,38 +29,41 @@ class gpt3_5_interview_generator:
     return response
   
 
-log = []
 
-base_interview_questions = ['what brings you here tonight?', 'what do you do for work?', 'what did you do yesterday?', 'free ask', 'any anxieties or things hanging over your head recently?']
+def audience_interview_dream():
+   
+  log = []
 
-interview_bot_module = gpt3_5_interview_generator() 
+  base_interview_questions = ['what brings you here tonight?', 'what do you do for work?', 'what did you do yesterday?', 'free ask', 'any anxieties or things hanging over your head recently?']
 
-introduction = interview_bot_module.generate_interview(input= "Begin the interview by asking the person's name", context=log)
+  interview_bot_module = gpt3_5_interview_generator() 
 
-log.append(introduction)
+  introduction = interview_bot_module.generate_interview(input= "Begin the interview by asking the person's name", context=log)
 
-print("AI: ", introduction)
+  log.append(introduction)
 
-reply = input("reply to the machine: ")
+  print("AI: ", introduction)
 
-print("Interviewee: ", reply)
+  reply = input("reply to the machine: ")
 
-log.append(reply)
+  print("Interviewee: ", reply)
 
-for question in base_interview_questions:
+  log.append(reply)
 
-    follow_up = interview_bot_module.generate_interview(input="They respond with {}. You can reply to their response, but then ask the question: {}. Unless the question is 'free ask', then you can ask any question you would like related to what has been said. Do not mention that it is a 'free ask' question.".format(reply, question), context=log)
+  for question in base_interview_questions:
 
-    log.append(follow_up)
+      follow_up = interview_bot_module.generate_interview(input="They respond with {}. You can reply to their response, but then ask the question: {}. Unless the question is 'free ask', then you can ask any question you would like related to what has been said. Do not mention that it is a 'free ask' question.".format(reply, question), context=log)
 
-    print("AI: ", follow_up)
+      log.append(follow_up)
 
-    reply = input("reply to the machine: ")
+      print("AI: ", follow_up)
 
-    log.append(reply)
+      reply = input("reply to the machine: ")
 
-    print("Interviewee: ", reply)
+      log.append(reply)
 
-wrap_up = interview_bot_module.generate_interview(input="They respond with {}. Reply to their response and then thank them for being a part of the interview and ask them to return to their seat. Take a pause so that they may leave and then introduce the show. Do not say 'ladies and gentlemen'. The show will be either a dream or a nightmare based on the day that the person just described. Announce whether the show will be a dream or a nightmare and thell the improvisers to begin".format(reply), context=log)
+      print("Interviewee: ", reply)
 
-print("AI: ", wrap_up)
+  wrap_up = interview_bot_module.generate_interview(input="They respond with {}. Reply to their response and then thank them for being a part of the interview and ask them to return to their seat. Take a pause so that they may leave and then introduce the show. Do not say 'ladies and gentlemen'. The show will be either a dream or a nightmare based on the day that the person just described. Announce whether the show will be a dream or a nightmare and thell the improvisers to begin".format(reply), context=log)
+
+  print("AI: ", wrap_up)
