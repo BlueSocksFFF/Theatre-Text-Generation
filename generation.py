@@ -3,6 +3,8 @@ import multiprocessing
 from languageModels.GPT3gen import gpt3_monologue_generator as gpt3
 from languageModels.GPT3_5gen import gpt3_5_monologue_generator as gpt3_5
 
+# will generate monologues using turbo and gpt3 at same time and present first one created
+
 class monologue_generator:
     def __init__(self) -> None:
         self.GPT3 = gpt3()

@@ -29,43 +29,43 @@ class gpt3_5_introduction_generator:
     return response
   
 
+def basic_intro():
+  with open('castBio.json', 'r') as f:
+              castBioDict = json.load(f)
+  castList = list(castBioDict.keys()) ##list of improvisers in the show
 
-with open('castBio.json', 'r') as f:
-            castBioDict = json.load(f)
-castList = list(castBioDict.keys()) ##list of improvisers in the show
+  log = []
 
-log = []
+  for improviser in castList: ## going through each improviser to introduce them
+    bio = castBioDict[improviser] ## each member has a bio
 
-for improviser in castList: ## going through each improviser to introduce them
-  bio = castBioDict[improviser] ## each member has a bio
+    print(improviser)
 
-  print(improviser)
+    introduction_bot_module = gpt3_5_introduction_generator() 
+    introduction = introduction_bot_module.generate_introduction(input= "Introduce the improviser {} to the crowd in just a few lines. Do not be repetitive with the introductions. Do not say 'ladies and gentlemen'. They are one of the cast members of this show. You know this about them: {}. End by asking them a question.".format(improviser, bio), context=log)
 
-  introduction_bot_module = gpt3_5_introduction_generator() 
-  introduction = introduction_bot_module.generate_introduction(input= "Introduce the improviser {} to the crowd in just a few lines. Do not be repetitive with the introductions. Do not say 'ladies and gentlemen'. They are one of the cast members of this show. You know this about them: {}. End by asking them a question.".format(improviser, bio), context=log)
-
-  log.append(introduction)
- 
-  print("AI: ", introduction)
-
-  reply = input("reply to the machine")
-
-  print(improviser,": ", reply)
-
-  follow_up = introduction_bot_module.generate_introduction(input="{} responds with {}. Give a short, quippy response. Do not ask any more questions.".format(improviser, reply), context=log)
-
-  log.append(reply)
-
-  log.append(follow_up)
-
-  print("AI: ", follow_up)
-
-  input("press ENTER to continue")
+    log.append(introduction)
   
+    print("AI: ", introduction)
 
-  
-  
+    reply = input("reply to the machine")
 
+    print(improviser,": ", reply)
 
+    follow_up = introduction_bot_module.generate_introduction(input="{} responds with {}. Give a short, quippy response. Do not ask any more questions.".format(improviser, reply), context=log)
+
+    log.append(reply)
+
+    log.append(follow_up)
+
+    print("AI: ", follow_up)
+
+    input("press ENTER to continue")
+    
 
     
+    
+
+
+
+      

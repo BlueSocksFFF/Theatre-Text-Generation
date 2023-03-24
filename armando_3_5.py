@@ -1,5 +1,6 @@
 from languageModels.GPT3_5gen import gpt3_5_monologue_generator as gpt3_5
-from languageModels.conversation_gen import gpt3_5_chat_generator as chat_bot
+import languageModels.introduction_gen
+from languageModels.introduction_gen import gpt3_5_introduction_generator as intro_bot
 import json
 import random
 from detect_key_phrases import key_phrase_extractor
@@ -8,19 +9,12 @@ from detect_entity import entity_extractor
 from emotions import emotion_setter
 
 
-##setting up the show
+##setting up the show with an introduction of the improvisers
 
-with open('castBio.json', 'r') as f:
-            castBio = json.load(f)
-
-chat_bot_module = chat_bot()
-introduction = chat_bot.generate_chat(input= "introduce the improviser {} to the crowd. You know this about them: {}".format() )
+languageModels.introduction_gen.basic_intro()
 
 
-
-
-
-
+# audience word suggestion
 suggestion = "wind"
 
  ### MONOLOGUE ONE ####
@@ -53,17 +47,12 @@ sentiment, sentiment_score = sentiment_analysis_module.get_sentiment(text=first_
 print(f"sentiment: {sentiment}")
 print(sentiment_score)
 
-    # # instatiate entity extractor
-    # entity_extraction_module = entity_extractor()
-    # entity_result = entity_extraction_module.get_entities(text=first_monologue)
-    # print("entities: ", entity_result)
-
 # instantiate the key_phrase_extractor
 key_phrase_extraction_module = key_phrase_extractor()
 key_phrases = key_phrase_extraction_module.get_key_phrases(text=first_monologue)
 print("key phrases: ", key_phrases)
 
-second_base_prompt = "Write a monologue that has a {} tone. This monologue should sound like it was made up on the spot. Use multiple personal anecdotes, filler words like 'ah' 'um' or 'like', rhetorical questions, and varied sentence length. Do not begin with a filler word. I want a natural tone and feeling. Incorporate some phrases from this list {}.".format(sentiment, key_phrases)
+second_base_prompt = "Write a monologue that has a {} tone. This monologue should sound like it was made up on the spot. Use multiple personal anecdotes, filler words like 'ah' 'um' or 'like', rhetorical questions, and varied sentence length. Do not begin with a filler word. I want a natural tone and feeling. Incorporate some ideas from this list {}.".format(sentiment, key_phrases)
 
 
 gpt = gpt3_5()
