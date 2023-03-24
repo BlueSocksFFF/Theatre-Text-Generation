@@ -4,7 +4,7 @@ import random
 from emotions import emotion_setter
 
 #these suggestion specifications should be given to us from the host/audience
-suggestion = "bread"
+suggestion = "oil spills"
 
 # setting new emotions for the monologue
 emotion_set_module = emotion_setter()
