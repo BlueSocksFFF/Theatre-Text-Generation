@@ -179,5 +179,13 @@ Anna ran for what felt like hours until finally waking up in a cold sweat. She s
 
 
 --------------------
-kris hammond
+03/28/23
+
+Blind Line Game:
+- bouncing back and forth btwn the two heads
+
+
+tag for blind line-- reference one of the drops
+
+investigate getting really good non sequitur lines 
 

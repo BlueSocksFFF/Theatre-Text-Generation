@@ -2,7 +2,7 @@ from languageModels.GPT3gen import gpt3_monologue_generator as gpt3
 import languageModels.introduction_gen
 import json
 import random
-from emotions import emotion_setter
+from helpers import emotion_setter
 
 
 ##setting up the show with an introduction of the improvisers

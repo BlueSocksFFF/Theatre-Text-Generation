@@ -16,4 +16,16 @@ class emotion_setter:
 
     def get_emotions(self):
         return str(self.first_emotion), str(self.second_emotion)
+    
+class blindline_prompt_setter:
+    def __init__(self):
+        with open('blindline.json', 'r') as f:
+            self.prompts = json.load(f)
+
+        selected_prompt = random.choice(list(self.prompts.keys()))
+        self.blindline_prompt = random.choice(self.prompts[selected_prompt])
+
+    def get_line_prompt(self):
+        return str(self.blindline_prompt)
+
 
