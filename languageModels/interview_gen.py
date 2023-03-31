@@ -67,3 +67,6 @@ def audience_interview_dream():
   wrap_up = interview_bot_module.generate_interview(input="They respond with {}. Reply to their response and then thank them for being a part of the interview and ask them to return to their seat. Take a pause so that they may leave and then introduce the show. Do not say 'ladies and gentlemen'. The show will be either a dream or a nightmare based on the day that the person just described. Announce whether the show will be a dream or a nightmare and thell the improvisers to begin".format(reply), context=log)
 
   print("AI: ", wrap_up)
+
+
+audience_interview_dream()

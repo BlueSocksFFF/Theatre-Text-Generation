@@ -1,0 +1,5 @@
+{
+    "chaos": ["Respond with a line someone might say to completely derail a scene.", "Respond with a line someone might say to cause drama with the other people they are with."],
+    "pity": ["Respond with a line someone might say to make people feel sorry for them.", "Respond with an imaginary sad revelation about someone's life"],
+    "drama": ["Respond with a line someone might say to cause drama with the other people they are with.", "Respond with a shocking 'I' statement someone might exclaim.", "Respond with a short accusation someone might throw at another person"]
+}
